@@ -1,0 +1,27 @@
+{
+  "name": "car-detailing-studio-management",
+  "version": "1.0.0",
+  "description": "Comprehensive Car Detailing Studio Management Software",
+  "main": "server/index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd server && npm run dev",
+    "client": "cd client && npm start",
+    "build": "cd client && npm run build",
+    "install-all": "npm install && cd server && npm install && cd ../client && npm install",
+    "setup-db": "cd server && npm run setup-db",
+    "setup": "node setup.js",
+    "setup-full": "node setup.js --setup-db"
+  },
+  "keywords": [
+    "car-detailing",
+    "studio-management",
+    "booking-system",
+    "inventory-management"
+  ],
+  "author": "Car Detailing Studio",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

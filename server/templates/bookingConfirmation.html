@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation - Car Detailing Studio</title>
+    <style>
+        /* Reset styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .tagline {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        /* Content */
+        .content {
+            padding: 40px 30px;
+        }
+        
+        .greeting {
+            font-size: 24px;
+            color: #2d3748;
+            margin-bottom: 20px;
+        }
+        
+        .confirmation-message {
+            font-size: 16px;
+            color: #4a5568;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+        
+        /* Booking Details Card */
+        .booking-card {
+            background-color: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+        
+        .booking-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #2d3748;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+        
+        .detail-label {
+            font-weight: 600;
+            color: #4a5568;
+            flex: 1;
+        }
+        
+        .detail-value {
+            color: #2d3748;
+            flex: 1;
+            text-align: right;
+        }
+        
+        .booking-id {
+            background-color: #667eea;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        
+        .status-badge {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        
+        .status-confirmed {
+            background-color: #c6f6d5;
+            color: #22543d;
+        }
+        
+        .status-pending {
+            background-color: #fef5e7;
+            color: #744210;
+        }
+        
+        /* Services Section */
+        .services-section {
+            margin: 25px 0;
+        }
+        
+        .services-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2d3748;
+            margin-bottom: 15px;
+        }
+        
+        .service-item {
+            background-color: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .service-name {
+            font-weight: 600;
+            color: #2d3748;
+        }
+        
+        .service-details {
+            color: #4a5568;
+            font-size: 14px;
+        }
+        
+        .service-price {
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        /* Total Amount */
+        .total-section {
+            background-color: #667eea;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 25px 0;
+        }
+        
+        .total-label {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        
+        .total-amount {
+            font-size: 28px;
+            font-weight: bold;
+        }
+        
+        /* Important Notes */
+        .notes-section {
+            background-color: #fff5f5;
+            border-left: 4px solid #f56565;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .notes-title {
+            font-weight: bold;
+            color: #c53030;
+            margin-bottom: 10px;
+        }
+        
+        .notes-content {
+            color: #4a5568;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        /* Contact Info */
+        .contact-section {
+            background-color: #f7fafc;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 25px 0;
+            text-align: center;
+        }
+        
+        .contact-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2d3748;
+            margin-bottom: 15px;
+        }
+        
+        .contact-item {
+            margin: 8px 0;
+            color: #4a5568;
+        }
+        
+        .contact-item strong {
+            color: #2d3748;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: #2d3748;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            margin-bottom: 20px;
+        }
+        
+        .social-links {
+            margin: 20px 0;
+        }
+        
+        .social-link {
+            display: inline-block;
+            margin: 0 10px;
+            color: white;
+            text-decoration: none;
+            padding: 8px 12px;
+            background-color: #4a5568;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #4a5568;
+            padding-top: 20px;
+            font-size: 12px;
+            color: #a0aec0;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .email-container {
+                margin: 0;
+                box-shadow: none;
+            }
+            
+            .content {
+                padding: 20px 15px;
+            }
+            
+            .header {
+                padding: 20px 15px;
+            }
+            
+            .booking-card {
+                padding: 20px 15px;
+            }
+            
+            .detail-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+            
+            .detail-value {
+                text-align: left;
+            }
+            
+            .service-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .total-amount {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">🚗 Car Detailing Studio</div>
+            <div class="tagline">Professional Car Care Services by W Technology</div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="content">
+            <div class="greeting">Hello {{customerName}}!</div>
+            
+            <div class="confirmation-message">
+                Thank you for choosing Car Detailing Studio! We're excited to provide you with our premium car care services. Your booking has been confirmed and we're looking forward to making your vehicle shine.
+            </div>
+            
+            <!-- Booking Details Card -->
+            <div class="booking-card">
+                <div class="booking-title">📋 Booking Details</div>
+                
+                <div class="detail-row">
+                    <div class="detail-label">Booking ID:</div>
+                    <div class="detail-value">
+                        <span class="booking-id">#{{bookingId}}</span>
+                    </div>
+                </div>
+                
+                <div class="detail-row">
+                    <div class="detail-label">Date & Time:</div>
+                    <div class="detail-value">{{bookingDate}} at {{bookingTime}}</div>
+                </div>
+                
+                <div class="detail-row">
+                    <div class="detail-label">Customer:</div>
+                    <div class="detail-value">{{customerName}}</div>
+                </div>
+                
+                <div class="detail-row">
+                    <div class="detail-label">Phone:</div>
+                    <div class="detail-value">{{customerPhone}}</div>
+                </div>
+                
+                <div class="detail-row">
+                    <div class="detail-label">Vehicle:</div>
+                    <div class="detail-value">{{vehicleMake}} {{vehicleModel}}</div>
+                </div>
+                
+                <div class="detail-row">
+                    <div class="detail-label">Registration:</div>
+                    <div class="detail-value">{{vehicleRegistration}}</div>
+                </div>
+                
+                <div class="detail-row">
+                    <div class="detail-label">Status:</div>
+                    <div class="detail-value">
+                        <span class="status-badge status-{{bookingStatus}}">{{bookingStatus}}</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Services Section -->
+            <div class="services-section">
+                <div class="services-title">🛠️ Services Booked</div>
+                {{#each services}}
+                <div class="service-item">
+                    <div>
+                        <div class="service-name">{{serviceName}}</div>
+                        <div class="service-details">Quantity: {{quantity}} | Duration: ~{{duration}} mins</div>
+                    </div>
+                    <div class="service-price">₹{{price}}</div>
+                </div>
+                {{/each}}
+            </div>
+            
+            <!-- Total Amount -->
+            <div class="total-section">
+                <div class="total-label">Total Amount</div>
+                <div class="total-amount">₹{{totalAmount}}</div>
+            </div>
+            
+            <!-- Important Notes -->
+            <div class="notes-section">
+                <div class="notes-title">📝 Important Information</div>
+                <div class="notes-content">
+                    • Please arrive 10 minutes before your scheduled appointment<br>
+                    • Bring a valid ID and vehicle registration documents<br>
+                    • Remove all personal belongings from your vehicle<br>
+                    • We accept cash, card, and digital payments<br>
+                    • For any changes or cancellations, please contact us at least 2 hours in advance
+                </div>
+            </div>
+            
+            <!-- Contact Information -->
+            <div class="contact-section">
+                <div class="contact-title">📞 Need Help?</div>
+            <div class="contact-item"><strong>Phone:</strong> +91 98765 43210</div>
+            <div class="contact-item"><strong>Email:</strong> info@wtechnology.in</div>
+            <div class="contact-item"><strong>Address:</strong> 123 Auto Care Street, Car City, CC 12345</div>
+                <div class="contact-item"><strong>Business Hours:</strong> Mon-Sat: 8:00 AM - 7:00 PM</div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-content">
+                <div style="font-size: 20px; margin-bottom: 10px;">🚗 Car Detailing Studio</div>
+                <div>Your trusted partner for premium car care services</div>
+            </div>
+            
+            <div class="social-links">
+                <a href="#" class="social-link">Facebook</a>
+                <a href="#" class="social-link">Instagram</a>
+                <a href="#" class="social-link">Twitter</a>
+                <a href="#" class="social-link">WhatsApp</a>
+            </div>
+            
+            <div class="footer-bottom">
+                <div>© 2024 Car Detailing Studio. All rights reserved.</div>
+                <div style="margin-top: 5px;">Developed by W Technology</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
