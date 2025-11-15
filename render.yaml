@@ -1,0 +1,49 @@
+services:
+  - type: web
+    name: car-detailing-studio
+    env: node
+    plan: free
+    buildCommand: npm run build:all
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      # Database Configuration - Update these with your Render MySQL database credentials
+      - key: DB_HOST
+        sync: false
+      - key: DB_USER
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: DB_NAME
+        sync: false
+      - key: DB_PORT
+        value: 3306
+      # JWT Configuration - Generate a secure random string
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRES_IN
+        value: 7d
+      # Email Configuration (Optional)
+      - key: SMTP_HOST
+        sync: false
+      - key: SMTP_PORT
+        value: 587
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASS
+        sync: false
+      # File Upload
+      - key: UPLOAD_PATH
+        value: ./uploads
+      - key: MAX_FILE_SIZE
+        value: 5242880
+
+databases:
+  - name: car-detailing-db
+    plan: free
+    databaseName: car_detailing_studio
+    user: car_detailing_user
+

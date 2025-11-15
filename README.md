@@ -330,7 +330,23 @@ The system includes the following main tables:
 
 ## 🚀 Deployment
 
-### Production Deployment
+### Deploying to Render (Free Tier)
+
+For detailed step-by-step instructions, see **[RENDER_DEPLOYMENT.md](./RENDER_DEPLOYMENT.md)**
+
+**Quick Steps:**
+1. Push your code to GitHub
+2. Create a new Web Service on Render
+3. Connect your GitHub repository
+4. Set environment variables (database, JWT secret, etc.)
+5. Deploy!
+
+**Important Notes:**
+- Render's free tier has **ephemeral file storage** - uploaded files will be deleted on restart
+- Consider using cloud storage (S3, Cloudinary) for file uploads
+- Free tier services spin down after 15 minutes of inactivity
+
+### Production Deployment (General)
 
 1. **Environment Setup**:
    - Set `NODE_ENV=production`
@@ -340,8 +356,7 @@ The system includes the following main tables:
 
 2. **Build Application**:
    ```bash
-   cd client
-   npm run build
+   npm run build:all
    ```
 
 3. **Server Deployment**:
@@ -352,6 +367,10 @@ The system includes the following main tables:
 4. **Database Backup**:
    - Set up automated database backups
    - Configure database replication if needed
+
+### Deploying to Hostinger
+
+For Hostinger deployment instructions, see the deployment section in the main README or contact support.
 
 ## 🤝 Contributing
 
