@@ -2,7 +2,7 @@ import React from 'react';
 
 
 const AboutPage = () => (
-  <div className="max-w-5xl mx-auto px-4 py-12 bg-gray-900 min-h-screen">
+  <div className="max-w-5xl mx-auto px-4 pt-24 pb-12 bg-gray-900 min-h-screen">
     <h1 className="text-4xl font-bold mb-6 text-center text-white">About Car Studio</h1>
     <p className="text-lg text-gray-300 mb-8 text-center">
       Car Studio is your trusted partner for premium car detailing, paint protection, and automotive care. Founded with a passion for cars and a commitment to excellence, we have grown into a leading car studio known for our attention to detail, customer-first approach, and use of cutting-edge technology.

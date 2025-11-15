@@ -97,7 +97,7 @@ const ServicesPage = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-12 bg-gray-900 min-h-screen">
+    <div className="max-w-7xl mx-auto px-4 pt-24 pb-12 bg-gray-900 min-h-screen">
       <h1 className="text-3xl font-bold mb-8 text-center text-white">Our Services & Packages</h1>
 
       {/* Categories Section */}
